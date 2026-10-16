@@ -1,0 +1,20 @@
+RELEASE YOUR MUSICはじめての音楽サイト公開ガイドパソコンでの操作がおすすめです。プログラミングやコマンド入力は必要ありません。GitHubは「サイトのファイルを置く場所」、Vercelは「そのファイルをWebサイトとして公開するサービス」です。どちらも自分のアカウントを使います。
+準備するものMP3音源（25MB以下）、画像（JPG・PNG・WebP、10MB以下）、曲名・アーティスト名。歌詞と紹介文は任意です。GitHubとVercelのアカウントがない場合は、それぞれの公式サイトで作成してください。
+
+このアプリで音楽サイトを作る曲名・アーティスト名を入力し、MP3と画像を選択します。歌詞と紹介文を入力したら、プレビューで内容を確認。「LISTEN NOW」で試聴できます。「サイトをダウンロード」を押すと、music-site.zipが保存されます。通常はパソコンの「ダウンロード」フォルダに入ります。
+ZIPを解凍する（中のファイルを取り出す）Windows：music-site.zipを右クリック →「すべて展開」→「展開」。Mac：music-site.zipをダブルクリック。解凍後のフォルダを開き、下のファイルがあることを確認してください。music-site（解凍したフォルダ）
+├ index.html         ← サイト本体
+├ vercel.json        ← 公開設定
+├ README.md          ← 説明書
+├ 使い方.txt         ← この手順
+└ assets             ← このフォルダも必要
+   ├ track.mp3       ← 音源
+   └ artwork.jpg     ← 画像（png / webpの場合もあります）GitHubにはZIPそのものではなく、解凍した中身をアップロードします。ファイル名は変更しないでください。
+GitHubで「置き場所」を作る下の「GitHubで作成」を開き、自分のアカウントでログインします。「Repository name」に半角英数字で名前を入力（例：my-music-site）。リポジトリとはファイルをまとめて置く場所です。公開範囲は「Private」（非公開）をおすすめします。Vercelから公開するWebサイトは誰でも見られます。「Add a README」はオフのままにして、「Create repository」（作成）を押します。GitHubで作成 ↗
+解凍した中身をGitHubへアップロードする作成直後の画面にある「uploading an existing file」（既存ファイルをアップロード）をクリックします。ファイル一覧がすでにある場合は「Add file」→「Upload files」を選びます。パソコンで解凍したフォルダを開き、その中のindex.html、vercel.json、README.md、使い方.txt、assetsフォルダをまとめて選択します。WindowsはCtrl+A、MacはCommand+Aで全部選択できます。選択した中身を、GitHubの「Drag files here…」と表示される場所へドラッグ＆ドロップします。assetsはフォルダごとドラッグしてください。「choose your files」で中の音源だけを選ぶと、フォルダの位置が変わることがあります。アップロードが終わったら、一覧に「index.html」「vercel.json」「assets/track.mp3」「assets/artwork…」があることを確認。画面下の「Commit changes」（変更を保存）を押してください。入力欄には「音楽サイトを追加」と書いて構いません。保存後、GitHubの最初のファイル一覧にindex.htmlとassetsフォルダが並べば成功です。my-music-siteなどの外側のフォルダしか表示されない場合は、フォルダを丸ごと入れてしまっています。新しい空のリポジトリを作り、解凍フォルダの中身をアップロードし直すと簡単です。
+自分のVercelにGitHubを連携する下の「Vercelで公開」を開き、ログインします。初めての場合は「Continue with GitHub」を選ぶと連携しやすくなります。ダッシュボードから進む場合は「Add New」→「Project」を押します。GitHubの許可画面が出たら、先ほど作ったリポジトリを選んでVercelにアクセスを許可します。一覧にリポジトリが出ない場合は「Adjust GitHub App Permissions」や「Install」から、そのリポジトリへのアクセスを追加します。Vercelで公開 ↗
+リポジトリを選んで公開する先ほどのmy-music-siteの横にある「Import」を押します。「Project Name」はそのままで構いません。「Root Directory」は変更しません（index.htmlが一番上にある状態）。このZIPにはvercel.jsonという設定ファイルが入っています。設定を確認する場合は以下のとおりです。Framework PresetOtherBuild Command空欄（必要ならOverrideをオンにして空欄）Output Directory.（半角のドット1文字）「Deploy」（公開）を押して待ちます。完了画面の「Visit」や、末尾が.vercel.appのURLを開くと音楽サイトが表示されます。実際に再生ボタンを押し、音楽・画像・歌詞を確認してください。
+URLを共有する・内容を更新する公開された https://〇〇.vercel.app のURLをコピーして、SNSや友人に共有できます。内容を変えるときは、このアプリで再度ZIPを作り、同じGitHubリポジトリへ同じ配置でアップロードして「Commit changes」。GitHubとVercelが連携されていれば、更新が自動で公開されます。画像形式を変えた場合は新しい画像もassetsフォルダごとアップロードしてください。
+
+うまくいかないときZIPをアップロードしてしまったZIPだけではサイトになりません。解凍して、中身をアップロードしてください。画像が出ない・音楽が流れないGitHubのassetsフォルダを開き、track.mp3とartworkの画像があるか確認。名前と配置を変えずにアップロードしてください。音楽は再生ボタンを押すと開始します。404という画面が出るGitHubの一番上にindex.htmlがあるか、VercelのOutput Directoryが「.」になっているか確認してください。ファイルが大きいと言われるGitHubのブラウザアップロードは1ファイル25MiBまでです。このアプリのサイズ制限内のファイルを使ってください。リポジトリがVercelに出ないGitHubとVercelで同じアカウントを使っているか、Vercelにそのリポジトリへのアクセスを許可したか確認してください。
+PrivateはGitHubのファイル一覧の非公開設定です。Vercelで公開した音源・画像・歌詞は訪問者が取得できる状態になります。公開できる素材を使用してください。画面の英語表記はサービス側の更新で変わる場合があります。公式案内：GitHubのアップロード手順 / VercelのGit連携
